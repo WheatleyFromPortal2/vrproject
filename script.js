@@ -73,12 +73,12 @@ function updateTerrain() {
   const startZ = -5;
   let arrX = px + 5;
   let arrZ = pz + 5;
-  if (arrX < 0 || arrZ < 0) return; // return nothing if our indexes are out of range
   for (tx = -1; tx < 2; tx++) {
     for (tz = -1; tz < 2; tz++) {
       vArrX = arrX + tx;
       vArrZ = arrZ + tz;
       console.log(`vArrX: ${vArrX} vArrZ: ${vArrZ}`);
+      if (vArrX < 0 || vArrZ < 0 || vArrX > chunksSize || vArrZ > chunksSize) break; // if the index is out of range, break the loop
       if (chunks[vArrX][vArrZ] == false) { // add the chunk, if it is false in the array
         addTerrain(vArrX, vArrZ);
         chunks[vArrX][vArrZ] = true;
