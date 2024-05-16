@@ -4,20 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>script test</title>
-    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="unpkg.com/aframe-extras@4.1.2/dist/aframe-extras.min.js></script>
-    <script src="cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src=https://aframe.io/releases/1.0.3/aframe.min.js></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src=https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.0.0/dist/aframe-extras.min.js></script>
+    <script src=//unpkg.com/aframe-extras@4.1.2/dist/aframe-extras.min.js></script>
     <script src=script.js></script>
   </head>
 
   <body>
-    <a-scene physics="debug: true; friction: -.2; restitution: 0.8; gravity: -10" start-game>
-      <a-entity id="rig" movement-controls kinematic-body="radius"></a-entity>
-      <a-camera wasd-controls="acceleration: 10"></a-camera>
-      <a-entity id="myEntity" src="textures/mars.jpg"></a-entity>
-      <a-plane static-body opacity="1" color="green" rotation="-90 0 0" width="20" height="20" depth="20" position="0 0 0"></a-plane>
-      <a-box dynamic-body opacity="1" width="1" height="1" depth="1" color="blue" position="0 20 -3"></a-box>
+    <a-scene physics="debug: true; friction: -.2; restitution: 0.8; gravity: -100" start-game>
+      <a-entity class="rig" kinematic-body="radius: 0.5" jump-ability="distance: 5; playerHeight: 0.6" position="0 100 100">
+        <a-entity class="camera" camera wasd-controls="acceleration: 10000" fov=110 look-controls="pointerLockEnabled: true;"></a-entity>
+      </a-entity>
+      <a-sphere dynamic-body color="red" radius="1" position="0 5 -5" visible="false" class="ball"></a-sphere>
+      <a-plane class='plane' static-body opacity=0 color="green" rotation="-90 0 0" width="500" height="500" depth="20" position="0 15 0"></a-plane>
+      <a-gltf-model class="terrain1" src="glTF/terrain1/scene.gltf" visible="false" scale="10 10 10"></a-gltf-model>
     </a-scene>
   </body>
-</html> 
+</html>
